@@ -35,7 +35,7 @@ export default function AboutSection() {
           {/* Left Column - Description */}
           <div className="space-y-6">
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              I'm a passionate Computer Engineering student at <span className="font-semibold text-blue-600 dark:text-cyan-400">Shri Sa'd Vidya Mandal Institute Of Technology, Bharuch</span>, 
+              I'm a passionate Computer Science & Engineering student at <span className="font-semibold text-blue-600 dark:text-cyan-400">Shri Sa'd Vidya Mandal Institute Of Technology, Bharuch</span>, 
               with a strong foundation in software development and emerging technologies.
             </p>
             
