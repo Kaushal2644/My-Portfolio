@@ -8,7 +8,7 @@ export default function HeroSection() {
     // Create a simple text resume
     const resumeText = `
 KAUSHAL PATEL
-Computer Engineering Student
+Computer Science & Engineering Student
 Bharuch, Gujarat | kaushalpatel2506@gmail.com | +91-7574845894
 LinkedIn: linkedin.com/in/kaushal-patel-5a0543323 | GitHub: github.com/Kaushal2644
 
@@ -74,7 +74,7 @@ CERTIFICATIONS
             <div className="space-y-4">
               <div className="inline-block">
                 <span className="px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-sm font-medium">
-                  Computer Engineering Student
+                  Computer Science & Engineering Student
                 </span>
               </div>
               
@@ -170,12 +170,6 @@ CERTIFICATIONS
                 <div className="absolute inset-0 rounded-full border-4 border-blue-500/30 dark:border-cyan-500/30 animate-ping"></div>
                 
                 {/* Floating Badge */}
-                <div className="absolute -bottom-4 -right-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-3 rounded-full shadow-xl transform hover:scale-110 transition-transform duration-300">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold">8.78</div>
-                    <div className="text-xs">CGPA</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
