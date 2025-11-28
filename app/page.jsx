@@ -23,7 +23,7 @@ export default function Home() {
       <footer className="bg-gray-900 dark:bg-slate-950 text-white py-8 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-400">
-            © 2025 Kaushal Patel. Built with passion using React & Base44
+            © 2025 Kaushal Patel. Built with passion using React
           </p>
           <p className="text-gray-500 text-sm mt-2">
             Designed & Developed by Kaushal Patel
