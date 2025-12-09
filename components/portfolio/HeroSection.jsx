@@ -6,7 +6,7 @@ import { Github, Linkedin, Mail, Download, MapPin } from "lucide-react";
 export default function HeroSection() {
   const handleDownloadResume = () => {
     const a = document.createElement('a');
-    a.href = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69120d07bb540407282c5eb5/Kaushal_Patel_Resume.pdf';
+    a.href = "/assets/Kaushal_Patel_Resume.pdf",
     a.download = 'Kaushal_Patel_Resume.pdf';
     a.target = '_blank';
     document.body.appendChild(a);
