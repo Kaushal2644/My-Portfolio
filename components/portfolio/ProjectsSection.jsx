@@ -1,8 +1,7 @@
-"use client";
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Brain, MapPin, X, AlertTriangle, Target, Image as ImageIcon } from "lucide-react";
+import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -18,116 +17,84 @@ export default function ProjectsSection() {
   const projects = [
     {
       title: "Employee Salary Prediction",
-      shortDescription:
-        "Built a machine learning model using Python to predict employee salaries based on various features like experience, education, and role.",
-      fullDescription:
-        "Developed a comprehensive machine learning solution to predict employee salaries with high accuracy. The system analyzes multiple factors including years of experience, educational background, job role, location, and industry sector. Implemented various regression algorithms and performed extensive feature engineering to optimize prediction accuracy.",
-      technologies: [
-        "Python",
-        "Machine Learning",
-        "Scikit-learn",
-        "Pandas",
-        "NumPy",
-        "Matplotlib",
-        "Seaborn",
-      ],
+      shortDescription: "Built a machine learning model using Python to predict employee salaries based on various features like experience, education, and role.",
+      fullDescription: "Developed a comprehensive machine learning solution to predict employee salaries with high accuracy. The system analyzes multiple factors including years of experience, educational background, job role, location, and industry sector. Implemented various regression algorithms and performed extensive feature engineering to optimize prediction accuracy.",
+      technologies: ["Python", "Machine Learning", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
       icon: Brain,
       gradient: "from-blue-500 to-cyan-500",
-      githubUrl: "https://github.com/Kaushal2644/Employ-Salary-Prediction.git",
+      githubUrl: "https://github.com/Kaushal2644",
       category: "Machine Learning",
       challenges: [
         "Handling missing and inconsistent data across different sources",
         "Feature selection from 20+ potential variables",
         "Achieving model accuracy above 85% threshold",
-        "Balancing model complexity with interpretability",
+        "Balancing model complexity with interpretability"
       ],
       achievements: [
         "Achieved 87% prediction accuracy on test dataset",
         "Reduced prediction error by 23% compared to baseline model",
         "Implemented cross-validation for robust performance",
-        "Created interactive visualizations for insights",
+        "Created interactive visualizations for insights"
       ],
       screenshots: [
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
-      ],
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
+      ]
     },
     {
       title: "Geolocation-based Attendance Tracking",
-      shortDescription:
-        "Developed an IoT and MERN stack application that tracks student attendance using smartwatch geolocation data.",
-      fullDescription:
-        "Created an innovative attendance management system that leverages IoT smartwatch technology combined with geolocation services. The system automatically marks attendance when students enter designated classroom zones, eliminating manual roll calls. Features include real-time tracking, automated notifications, comprehensive admin dashboard, and detailed analytics for attendance patterns.",
-      technologies: [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Express",
-        "IoT",
-        "Geolocation API",
-        "JWT",
-        "Socket.io",
-        "Material-UI",
-      ],
+      shortDescription: "Developed an IoT and MERN stack application that tracks student attendance using smartwatch geolocation data.",
+      fullDescription: "Created an innovative attendance management system that leverages IoT smartwatch technology combined with geolocation services. The system automatically marks attendance when students enter designated classroom zones, eliminating manual roll calls. Features include real-time tracking, automated notifications, comprehensive admin dashboard, and detailed analytics for attendance patterns.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "IoT", "Geolocation API", "JWT", "Socket.io", "Material-UI"],
       icon: MapPin,
       gradient: "from-cyan-500 to-blue-500",
       githubUrl: "https://github.com/Kaushal2644",
+      liveUrl: "https://github.com/Kaushal2644",
       category: "Full Stack & IoT",
       challenges: [
         "Ensuring accurate geolocation within building boundaries",
         "Managing real-time data sync for multiple devices",
         "Battery optimization for continuous location tracking",
-        "Handling network connectivity issues in smartwatches",
+        "Handling network connectivity issues in smartwatches"
       ],
       achievements: [
         "Reduced attendance marking time by 95%",
         "99.2% accuracy in geofence detection",
         "Scaled to handle 500+ concurrent users",
-        "Real-time WebSocket implementation for instant updates",
+        "Real-time WebSocket implementation for instant updates"
       ],
       screenshots: [
         "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop",
-      ],
+        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
+      ]
     },
     {
       title: "Skill Swap Platform",
-      shortDescription:
-        "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
-      fullDescription:
-        "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others’ profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
-      technologies: [
-        "React",
-        "Next.js",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "JWT",
-        "Tailwind CSS",
-        "Cloudinary",
-      ],
-      icon: Brain,
+      shortDescription: "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
+      fullDescription: "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Tailwind CSS", "Multer", "Bcrypt", "Vercel", "Render"],
+      icon: Users,
       gradient: "from-purple-500 to-pink-500",
-      githubUrl: "https://github.com/Kaushal2644/Skill-Swap-Platform.git", 
+      githubUrl: "https://github.com/Kaushal2644",
       liveUrl: "https://skill-swap-platform-gamma.vercel.app",
-      category: "Full Stack",
+      category: "Full Stack & IoT",
       challenges: [
-        "Building secure authentication with JWT and password hashing",
-        "Managing multiple skill categories and dynamic filtering",
-        "Handling image uploads through Cloudinary",
-        "Creating admin dashboard for moderation",
+        "Implementing secure user authentication and authorization",
+        "Managing complex skill matching algorithms",
+        "Handling real-time request notifications",
+        "Optimizing image upload and storage"
       ],
       achievements: [
-        "Fully functional live MERN application",
-        "Implemented secure skill request workflow",
-        "Added responsive UI with smooth animations",
-        "Deployed full-stack app with seamless integration",
+        "Built end-to-end MERN stack application",
+        "Implemented JWT-based authentication system",
+        "Created admin moderation panel for quality control",
+        "Deployed successfully on cloud platforms"
       ],
       screenshots: [
-        "https://chatgpt.com/backend-api/estuary/content?id=file_00000000d990720890399a7451bdcd4d&ts=490361&p=fs&cid=1&sig=066c3159df4de3a7e8deb38d812d7023dc1289f6894281d3789b2bf742d2a0b0&v=0",
-        "https://images.unsplash.com/photo-1520700051972-5f2d74254a0c?w=800&h=400&fit=crop",
-      ],
-    },
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop"
+      ]
+    }
   ];
 
   const categories = ["All", "Machine Learning", "Full Stack & IoT"];
@@ -229,6 +196,22 @@ export default function ProjectsSection() {
                     >
                       View Details
                     </Button>
+                    {project.liveUrl && (
+                      <Button
+                        asChild
+                        variant="outline"
+                        onClick={(e) => e.stopPropagation()}
+                        className="border-2 border-green-500 dark:border-green-400 text-green-500 dark:text-green-400"
+                      >
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    )}
                     <Button
                       asChild
                       variant="outline"
@@ -381,6 +364,21 @@ export default function ProjectsSection() {
 
               {/* Action Buttons */}
               <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-slate-700">
+                {selectedProject.liveUrl && (
+                  <Button
+                    asChild
+                    className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:opacity-90 text-white"
+                  >
+                    <a
+                      href={selectedProject.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" />
+                      View Live Site
+                    </a>
+                  </Button>
+                )}
                 <Button
                   asChild
                   className={`flex-1 bg-gradient-to-r ${selectedProject.gradient} hover:opacity-90 text-white`}
