@@ -73,7 +73,7 @@ export default function ProjectsSection() {
       fullDescription: "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
       technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Tailwind CSS", "Multer", "Bcrypt", "Vercel", "Render"],
       icon: Users,
-      gradient: "from-purple-500 to-pink-500",
+      gradient: "from-blue-500 to-cyan-500",
       githubUrl: "https://github.com/Kaushal2644",
       liveUrl: "https://skill-swap-platform-gamma.vercel.app",
       category: "Full Stack",
