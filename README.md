@@ -8,10 +8,16 @@ This portfolio showcases my skills, projects, experiences, and ways to connect w
 
 📌 Features
 
-⚡ Next.js Framework – Fast, optimized, and SEO-friendly
+⚡ Next.js Framework – Fast, optimised, and SEO-friendly
+
 🎨 Modern UI/UX with responsive design
+
 📱 Fully mobile-friendly layout
+
 🧩 Reusable React components
-🚀 Optimized for Vercel deployment
+
+🚀 Optimised for Vercel deployment
+
 📂 Projects section with live links & descriptions
+
 📞 Contact section with form or direct links
