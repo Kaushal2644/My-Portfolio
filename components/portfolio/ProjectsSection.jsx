@@ -22,7 +22,7 @@ export default function ProjectsSection() {
       technologies: ["Python", "Machine Learning", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
       icon: Brain,
       gradient: "from-blue-500 to-cyan-500",
-      githubUrl: "https://github.com/Kaushal2644",
+      githubUrl: "https://github.com/Kaushal2644/Employ-Salary-Prediction.git",
       category: "Machine Learning",
       challenges: [
         "Handling missing and inconsistent data across different sources",
@@ -49,7 +49,6 @@ export default function ProjectsSection() {
       icon: MapPin,
       gradient: "from-cyan-500 to-blue-500",
       githubUrl: "https://github.com/Kaushal2644",
-      liveUrl: "https://github.com/Kaushal2644",
       category: "Full Stack & IoT",
       challenges: [
         "Ensuring accurate geolocation within building boundaries",
@@ -77,7 +76,7 @@ export default function ProjectsSection() {
       gradient: "from-purple-500 to-pink-500",
       githubUrl: "https://github.com/Kaushal2644",
       liveUrl: "https://skill-swap-platform-gamma.vercel.app",
-      category: "Full Stack & IoT",
+      category: "Full Stack",
       challenges: [
         "Implementing secure user authentication and authorization",
         "Managing complex skill matching algorithms",
