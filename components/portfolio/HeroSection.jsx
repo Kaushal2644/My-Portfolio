@@ -5,64 +5,13 @@ import { Github, Linkedin, Mail, Download, MapPin } from "lucide-react";
 
 export default function HeroSection() {
   const handleDownloadResume = () => {
-    // Create a simple text resume
-    const resumeText = `
-KAUSHAL PATEL
-Computer Science & Engineering Student
-Bharuch, Gujarat | kaushalpatel2506@gmail.com | +91-7574845894
-LinkedIn: linkedin.com/in/kaushal-patel-5a0543323 | GitHub: github.com/Kaushal2644
-
-EDUCATION
-B.E. in Computer Engineering
-Shri Sa'd Vidya Mandal Institute Of Technology, Bharuch
-2023 – 2027 | CGPA: 8.78
-
-TECHNICAL SKILLS
-Languages: Java, Python, C, C++, JavaScript, SQL
-Frameworks: ReactJS, NextJS, NodeJS, ExpressJS, MongoDB
-Tools: VS Code, Android Studio, IntelliJ, Cursor AI, WindSurf, Git, Linux
-
-CORE COMPETENCIES
-• Data Structures & Algorithms
-• Operating Systems
-• Computer Networks
-• Database Management Systems
-• Artificial Intelligence
-• Object-Oriented Programming
-• Web Development
-
-PROJECTS
-Employee Salary Prediction (Python)
-• Built ML model to predict employee salaries
-
-Geolocation-based Attendance Tracking (IoT/MERN)
-• Developed smartwatch-based student attendance system
-
-INTERNSHIPS
-IBM Virtual Internship (2025)
-• Built employee salary prediction model
-
-Google for Developer Virtual Internship (2025)
-• Learned Android app development
-
-CERTIFICATIONS
-• DSA with Java – Apna College
-• Web Development – Apna College
-• Introduction to SQL – Tops Technology
-• Android Developer Virtual Internship – Google for Developer
-• AI/ML Virtual Internship – IBM
-• React.js API Integration – Tops Technology
-    `;
-    
-    const blob = new Blob([resumeText], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Kaushal_Patel_Resume.txt';
+    a.href = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69120d07bb540407282c5eb5/Kaushal_Patel_Resume.pdf';
+    a.download = 'Kaushal_Patel_Resume.pdf';
+    a.target = '_blank';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-    URL.revokeObjectURL(url);
   };
 
   return (
