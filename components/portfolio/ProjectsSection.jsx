@@ -96,7 +96,7 @@ export default function ProjectsSection() {
     }
   ];
 
-  const categories = ["All", "Machine Learning", "Full Stack & IoT"];
+  const categories = ["All", "Machine Learning", "Full Stack"];
 
   const filteredProjects = activeFilter === "All" 
     ? projects 
