@@ -41,32 +41,32 @@ export default function ProjectsSection() {
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
       ]
     },
-    {
-      title: "Geolocation-based Attendance Tracking",
-      shortDescription: "Developed an IoT and MERN stack application that tracks student attendance using smartwatch geolocation data.",
-      fullDescription: "Created an innovative attendance management system that leverages IoT smartwatch technology combined with geolocation services. The system automatically marks attendance when students enter designated classroom zones, eliminating manual roll calls. Features include real-time tracking, automated notifications, comprehensive admin dashboard, and detailed analytics for attendance patterns.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "IoT", "Geolocation API", "JWT", "Socket.io", "Material-UI"],
-      icon: MapPin,
-      gradient: "from-cyan-500 to-blue-500",
-      githubUrl: "https://github.com/Kaushal2644",
-      category: "Full Stack & IoT",
-      challenges: [
-        "Ensuring accurate geolocation within building boundaries",
-        "Managing real-time data sync for multiple devices",
-        "Battery optimization for continuous location tracking",
-        "Handling network connectivity issues in smartwatches"
-      ],
-      achievements: [
-        "Reduced attendance marking time by 95%",
-        "99.2% accuracy in geofence detection",
-        "Scaled to handle 500+ concurrent users",
-        "Real-time WebSocket implementation for instant updates"
-      ],
-      screenshots: [
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
-      ]
-    },
+    // {
+    //   title: "Geolocation-based Attendance Tracking",
+    //   shortDescription: "Developed an IoT and MERN stack application that tracks student attendance using smartwatch geolocation data.",
+    //   fullDescription: "Created an innovative attendance management system that leverages IoT smartwatch technology combined with geolocation services. The system automatically marks attendance when students enter designated classroom zones, eliminating manual roll calls. Features include real-time tracking, automated notifications, comprehensive admin dashboard, and detailed analytics for attendance patterns.",
+    //   technologies: ["React", "Node.js", "MongoDB", "Express", "IoT", "Geolocation API", "JWT", "Socket.io", "Material-UI"],
+    //   icon: MapPin,
+    //   gradient: "from-cyan-500 to-blue-500",
+    //   githubUrl: "https://github.com/Kaushal2644",
+    //   category: "Full Stack & IoT",
+    //   challenges: [
+    //     "Ensuring accurate geolocation within building boundaries",
+    //     "Managing real-time data sync for multiple devices",
+    //     "Battery optimization for continuous location tracking",
+    //     "Handling network connectivity issues in smartwatches"
+    //   ],
+    //   achievements: [
+    //     "Reduced attendance marking time by 95%",
+    //     "99.2% accuracy in geofence detection",
+    //     "Scaled to handle 500+ concurrent users",
+    //     "Real-time WebSocket implementation for instant updates"
+    //   ],
+    //   screenshots: [
+    //     "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop",
+    //     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
+    //   ]
+    // },
     {
       title: "Skill Swap Platform",
       shortDescription: "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
