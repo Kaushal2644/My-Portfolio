@@ -125,17 +125,7 @@ export default function ProjectsSection() {
         "Artisan’s Corner is a full-stack MERN e-commerce platform that empowers local artisans to showcase and sell handmade products online. The application provides a seamless buying experience for customers while offering sellers a dedicated dashboard to manage inventory, orders, and reviews. Built with modern cloud infrastructure, it simulates a real-world production-ready system.",
 
       fullDescription: `
-                        • Secure user authentication & authorization using JWT
-                        • Dedicated seller dashboard for product & inventory management
-                        • Complete Product CRUD operations
-                        • Shopping cart & order management system
-                        • Reviews & ratings for customer feedback
-                        • Cloudinary image uploads & optimized media storage
-                        • RESTful API based backend architecture
-                        • Fully deployed frontend & backend on Vercel
-                        • MongoDB Atlas cloud database integration
-                        • Responsive UI for desktop & mobile devices
-                        • Razorpay payment gateway planned (integration in progress)
+                        Artisan’s Corner is a production-ready full-stack MERN e-commerce platform built to empower local artisans to sell handmade products online. The application provides secure user authentication and authorization using JWT, a dedicated seller dashboard for managing products and inventory, complete product CRUD operations, and a seamless shopping experience with cart and order management. Customers can explore products, leave reviews and ratings, and interact with a responsive and intuitive interface. The backend follows a RESTful API architecture and integrates MongoDB Atlas for cloud data storage and Cloudinary for optimized image uploads. Both the frontend and backend are fully deployed on Vercel to simulate a real-world cloud environment. A Razorpay payment gateway integration is planned and currently under progress to enable secure online transactions.
                       `,
 
       technologies: [
