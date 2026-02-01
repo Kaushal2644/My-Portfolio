@@ -16,7 +16,7 @@ export default function AboutSection() {
 
   const highlights = [
     { icon: GraduationCap, label: "Education", value: "B.E. Computer Engineering" },
-    { icon: Award, label: "CGPA", value: "8.78/10.0" },
+    { icon: Award, label: "CGPA", value: "9.17/10.0" },
     { icon: Code, label: "Projects", value: "2+ Major Projects" },
     { icon: Briefcase, label: "Internships", value: "2 Virtual Internships" }
   ];
