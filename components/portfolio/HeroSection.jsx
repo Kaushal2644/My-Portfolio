@@ -47,7 +47,7 @@ export default function HeroSection() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <span>•</span>
-                  <span>CGPA: 8.78</span>
+                  <span>CGPA: 9.17</span>
                 </div>
               </div>
             </div>
