@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon } from "lucide-react";
+import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon, ShoppingCart } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 
@@ -131,7 +131,7 @@ export default function ProjectsSection() {
         "Deployment: Vercel",
         "Media Storage: Cloudinary",
       ],
-      icon: Users,
+      icon: ShoppingCart,
       gradient: "from-blue-500 to-cyan-500",
       githubUrl: "https://github.com/Kaushal2644/Artisan-s.git",
       liveUrl: "https://artisan-s-corner.vercel.app/",
