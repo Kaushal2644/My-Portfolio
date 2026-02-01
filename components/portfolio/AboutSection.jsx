@@ -106,7 +106,7 @@ export default function AboutSection() {
                   <span>•</span>
                   <span className="flex items-center">
                     <span className="font-semibold mr-2">CGPA:</span>
-                    <span className="text-blue-600 dark:text-cyan-400 font-bold">8.78/10.0</span>
+                    <span className="text-blue-600 dark:text-cyan-400 font-bold">9.17/10.0</span>
                   </span>
                 </div>
               </div>
