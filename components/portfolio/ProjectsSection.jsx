@@ -17,9 +17,19 @@ export default function ProjectsSection() {
   const projects = [
     {
       title: "Employee Salary Prediction",
-      shortDescription: "Built a machine learning model using Python to predict employee salaries based on various features like experience, education, and role.",
-      fullDescription: "Developed a comprehensive machine learning solution to predict employee salaries with high accuracy. The system analyzes multiple factors including years of experience, educational background, job role, location, and industry sector. Implemented various regression algorithms and performed extensive feature engineering to optimize prediction accuracy.",
-      technologies: ["Python", "Machine Learning", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
+      shortDescription:
+        "Built a machine learning model using Python to predict employee salaries based on various features like experience, education, and role.",
+      fullDescription:
+        "Developed a comprehensive machine learning solution to predict employee salaries with high accuracy. The system analyzes multiple factors including years of experience, educational background, job role, location, and industry sector. Implemented various regression algorithms and performed extensive feature engineering to optimize prediction accuracy.",
+      technologies: [
+        "Python",
+        "Machine Learning",
+        "Scikit-learn",
+        "Pandas",
+        "NumPy",
+        "Matplotlib",
+        "Seaborn",
+      ],
       icon: Brain,
       gradient: "from-blue-500 to-cyan-500",
       githubUrl: "https://github.com/Kaushal2644/Employ-Salary-Prediction.git",
@@ -28,18 +38,18 @@ export default function ProjectsSection() {
         "Handling missing and inconsistent data across different sources",
         "Feature selection from 20+ potential variables",
         "Achieving model accuracy above 85% threshold",
-        "Balancing model complexity with interpretability"
+        "Balancing model complexity with interpretability",
       ],
       achievements: [
         "Achieved 87% prediction accuracy on test dataset",
         "Reduced prediction error by 23% compared to baseline model",
         "Implemented cross-validation for robust performance",
-        "Created interactive visualizations for insights"
+        "Created interactive visualizations for insights",
       ],
       screenshots: [
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop"
-      ]
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
+      ],
     },
     // {
     //   title: "Geolocation-based Attendance Tracking",
@@ -69,31 +79,100 @@ export default function ProjectsSection() {
     // },
     {
       title: "Skill Swap Platform",
-      shortDescription: "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
-      fullDescription: "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "JWT", "Tailwind CSS", "Multer", "Bcrypt", "Vercel", "Render"],
+      shortDescription:
+        "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
+      fullDescription:
+        "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "JWT",
+        "Tailwind CSS",
+        "Multer",
+        "Bcrypt",
+        "Vercel",
+        "Render",
+      ],
       icon: Users,
       gradient: "from-blue-500 to-cyan-500",
-      githubUrl: "https://github.com/Kaushal2644",
+      githubUrl: "https://github.com/Kaushal2644/Skill-Swap-Platform.git",
       liveUrl: "https://skill-swap-platform-gamma.vercel.app",
       category: "Full Stack",
       challenges: [
         "Implementing secure user authentication and authorization",
         "Managing complex skill matching algorithms",
         "Handling real-time request notifications",
-        "Optimizing image upload and storage"
+        "Optimizing image upload and storage",
       ],
       achievements: [
         "Built end-to-end MERN stack application",
         "Implemented JWT-based authentication system",
         "Created admin moderation panel for quality control",
-        "Deployed successfully on cloud platforms"
+        "Deployed successfully on cloud platforms",
       ],
       screenshots: [
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop"
-      ]
-    }
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
+      ],
+    },
+
+    {
+      title: "Artisan’s Corner",
+
+      shortDescription:
+        "Artisan’s Corner is a full-stack MERN e-commerce platform that empowers local artisans to showcase and sell handmade products online. The application provides a seamless buying experience for customers while offering sellers a dedicated dashboard to manage inventory, orders, and reviews. Built with modern cloud infrastructure, it simulates a real-world production-ready system.",
+
+      fullDescription: `
+                        • Secure user authentication & authorization using JWT
+                        • Dedicated seller dashboard for product & inventory management
+                        • Complete Product CRUD operations
+                        • Shopping cart & order management system
+                        • Reviews & ratings for customer feedback
+                        • Cloudinary image uploads & optimized media storage
+                        • RESTful API based backend architecture
+                        • Fully deployed frontend & backend on Vercel
+                        • MongoDB Atlas cloud database integration
+                        • Responsive UI for desktop & mobile devices
+                        • Razorpay payment gateway planned (integration in progress)
+                      `,
+
+      technologies: [
+        "Frontend: React (Vite), Axios, Context API",
+        "Backend: Node.js, Express.js",
+        "Database: MongoDB Atlas",
+        "Authentication: JWT",
+        "Deployment: Vercel",
+        "Media Storage: Cloudinary",
+      ],
+      icon: Users,
+      gradient: "from-blue-500 to-cyan-500",
+      githubUrl: "https://github.com/Kaushal2644/Artisan-s.git",
+      liveUrl: "https://artisan-s-corner.vercel.app/",
+      category: "Full Stack",
+      challenges: [
+        "Handling CORS between separate frontend and backend deployments",
+        "Configuring environment variables securely in production",
+        "Managing MongoDB Atlas cloud connections on serverless architecture",
+        "Implementing secure JWT authentication flows",
+        "Optimizing image upload and storage using Cloudinary",
+        "Debugging real-world deployment issues on Vercel",
+      ],
+
+      achievements: [
+        "Built a complete end-to-end MERN stack application",
+        "Designed scalable RESTful APIs",
+        "Implemented JWT-based authentication & protected routes",
+        "Successfully deployed frontend and backend on cloud infrastructure",
+        "Created a production-ready architecture similar to real e-commerce platforms",
+      ],
+
+      screenshots: [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
+      ],
+    },
   ];
 
   const categories = ["All", "Machine Learning", "Full Stack"];
