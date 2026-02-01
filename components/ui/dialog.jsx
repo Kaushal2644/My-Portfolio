@@ -2,16 +2,16 @@
 
 import React, { useState } from "react";
 
-export function Dialog({ open, onOpenChange, children }) {
+export function Dialog({ open, onOpenChange, children, className = "" }) {
   return (
     <>
       {open && (
         <div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
           onClick={() => onOpenChange(false)}
         >
           <div
-            className="bg-white dark:bg-slate-900 rounded-xl p-6 shadow-xl w-full max-w-lg"
+            className={`bg-white dark:bg-slate-900 rounded-xl shadow-xl w-full max-h-[90vh] flex flex-col overflow-hidden ${className || "max-w-lg"}`.trim()}
             onClick={(e) => e.stopPropagation()}
           >
             {children}
@@ -22,8 +22,8 @@ export function Dialog({ open, onOpenChange, children }) {
   );
 }
 
-export function DialogContent({ children }) {
-  return <div className="space-y-4">{children}</div>;
+export function DialogContent({ children, className = "" }) {
+  return <div className={`flex flex-col flex-1 min-h-0 overflow-hidden ${className}`.trim()}>{children}</div>;
 }
 
 export function DialogHeader({ children }) {

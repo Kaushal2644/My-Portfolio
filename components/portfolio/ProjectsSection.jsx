@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 
 export default function ProjectsSection() {
@@ -324,151 +319,153 @@ export default function ProjectsSection() {
       </div>
 
       {/* Project Details Modal */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)} className="max-w-2xl">
+        <DialogContent>
           {selectedProject && (
-            <div className="space-y-6">
-              <DialogHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${selectedProject.gradient} flex items-center justify-center`}>
-                        {React.createElement(selectedProject.icon, { className: "w-8 h-8 text-white" })}
+            <>
+              {/* Sticky header: title left, close button right */}
+              <div className="flex-shrink-0 flex items-center justify-between gap-3 px-5 py-3 border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white truncate">
+                  {selectedProject.title}
+                </h2>
+                <button
+                  type="button"
+                  onClick={() => setSelectedProject(null)}
+                  className="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-slate-800 transition-colors flex-shrink-0"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Scrollable body */}
+              <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4 space-y-5">
+                <div className="flex items-center gap-2">
+                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${selectedProject.gradient} flex items-center justify-center flex-shrink-0`}>
+                    {React.createElement(selectedProject.icon, { className: "w-5 h-5 text-white" })}
+                  </div>
+                  <Badge className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-cyan-400 border-0">
+                    {selectedProject.category}
+                  </Badge>
+                </div>
+
+                {/* Screenshots */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                    <ImageIcon className="w-4 h-4" />
+                    Project Preview
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {selectedProject.screenshots.map((screenshot, index) => (
+                      <div key={index} className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700">
+                        <img
+                          src={screenshot}
+                          alt={`${selectedProject.title} screenshot ${index + 1}`}
+                          className="w-full h-36 object-cover hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                      <div>
-                        <DialogTitle className="text-3xl font-bold text-gray-900 dark:text-white">
-                          {selectedProject.title}
-                        </DialogTitle>
-                        <Badge className="mt-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-cyan-400 border-0">
-                          {selectedProject.category}
-                        </Badge>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
-              </DialogHeader>
 
-              {/* Screenshots */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <ImageIcon className="w-5 h-5" />
-                  Project Preview
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {selectedProject.screenshots.map((screenshot, index) => (
-                    <div key={index} className="rounded-lg overflow-hidden border-2 border-gray-200 dark:border-slate-700">
-                      <img
-                        src={screenshot}
-                        alt={`${selectedProject.title} screenshot ${index + 1}`}
-                        className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  ))}
+                {/* Full Description */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                    About This Project
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-sm">
+                    {selectedProject.fullDescription}
+                  </p>
                 </div>
-              </div>
 
-              {/* Full Description */}
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  About This Project
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {selectedProject.fullDescription}
-                </p>
-              </div>
+                {/* Technologies */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white">
+                    Technologies Used
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1.5 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-cyan-400 text-xs font-medium border border-blue-200 dark:border-blue-800"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-              {/* Technologies */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                  Technologies Used
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-cyan-400 text-sm font-medium border border-blue-200 dark:border-blue-800"
+                {/* Challenges */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                    <AlertTriangle className="w-4 h-4 text-orange-500" />
+                    Challenges Faced
+                  </h3>
+                  <ul className="space-y-1.5">
+                    {selectedProject.challenges.map((challenge, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500 mt-2 flex-shrink-0" />
+                        <span className="text-gray-600 dark:text-gray-300 text-sm">
+                          {challenge}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Achievements */}
+                <div className="space-y-2">
+                  <h3 className="text-base font-semibold text-gray-900 dark:text-white flex items-center gap-2">
+                    <Target className="w-4 h-4 text-green-500" />
+                    Key Achievements
+                  </h3>
+                  <ul className="space-y-1.5">
+                    {selectedProject.achievements.map((achievement, index) => (
+                      <li key={index} className="flex items-start gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 flex-shrink-0" />
+                        <span className="text-gray-600 dark:text-gray-300 text-sm">
+                          {achievement}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Action Buttons - no Close button */}
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-gray-200 dark:border-slate-700">
+                  {selectedProject.liveUrl && (
+                    <Button
+                      asChild
+                      size="sm"
+                      className="flex-1 min-w-[120px] bg-gradient-to-r from-green-500 to-green-600 hover:opacity-90 text-white"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Challenges */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <AlertTriangle className="w-5 h-5 text-orange-500" />
-                  Challenges Faced
-                </h3>
-                <ul className="space-y-2">
-                  {selectedProject.challenges.map((challenge, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-orange-500 mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-600 dark:text-gray-300">
-                        {challenge}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Achievements */}
-              <div className="space-y-3">
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                  <Target className="w-5 h-5 text-green-500" />
-                  Key Achievements
-                </h3>
-                <ul className="space-y-2">
-                  {selectedProject.achievements.map((achievement, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-600 dark:text-gray-300">
-                        {achievement}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-slate-700">
-                {selectedProject.liveUrl && (
+                      <a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        View Live Site
+                      </a>
+                    </Button>
+                  )}
                   <Button
                     asChild
-                    className="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:opacity-90 text-white"
+                    size="sm"
+                    className={`flex-1 min-w-[120px] bg-gradient-to-r ${selectedProject.gradient} hover:opacity-90 text-white`}
                   >
                     <a
-                      href={selectedProject.liveUrl}
+                      href={selectedProject.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View Live Site
+                      <Github className="w-4 h-4 mr-2" />
+                      View on GitHub
                     </a>
                   </Button>
-                )}
-                <Button
-                  asChild
-                  className={`flex-1 bg-gradient-to-r ${selectedProject.gradient} hover:opacity-90 text-white`}
-                >
-                  <a
-                    href={selectedProject.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    View on GitHub
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => setSelectedProject(null)}
-                  className="border-2 border-gray-300 dark:border-slate-700"
-                >
-                  Close
-                </Button>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </DialogContent>
       </Dialog>
