@@ -72,46 +72,46 @@ export default function ProjectsSection() {
     //     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
     //   ]
     // },
-    {
-      title: "Skill Swap Platform",
-      shortDescription:
-        "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
-      fullDescription:
-        "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
-      technologies: [
-        "React",
-        "Node.js",
-        "MongoDB",
-        "Express",
-        "JWT",
-        "Tailwind CSS",
-        "Multer",
-        "Bcrypt",
-        "Vercel",
-        "Render",
-      ],
-      icon: Users,
-      gradient: "from-blue-500 to-cyan-500",
-      githubUrl: "https://github.com/Kaushal2644/Skill-Swap-Platform.git",
-      liveUrl: "https://skill-swap-platform-gamma.vercel.app",
-      category: "Full Stack",
-      challenges: [
-        "Implementing secure user authentication and authorization",
-        "Managing complex skill matching algorithms",
-        "Handling real-time request notifications",
-        "Optimizing image upload and storage",
-      ],
-      achievements: [
-        "Built end-to-end MERN stack application",
-        "Implemented JWT-based authentication system",
-        "Created admin moderation panel for quality control",
-        "Deployed successfully on cloud platforms",
-      ],
-      screenshots: [
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
-      ],
-    },
+    // {
+    //   title: "Skill Swap Platform",
+    //   shortDescription:
+    //     "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
+    //   fullDescription:
+    //     "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
+    //   technologies: [
+    //     "React",
+    //     "Node.js",
+    //     "MongoDB",
+    //     "Express",
+    //     "JWT",
+    //     "Tailwind CSS",
+    //     "Multer",
+    //     "Bcrypt",
+    //     "Vercel",
+    //     "Render",
+    //   ],
+    //   icon: Users,
+    //   gradient: "from-blue-500 to-cyan-500",
+    //   githubUrl: "https://github.com/Kaushal2644/Skill-Swap-Platform.git",
+    //   liveUrl: "https://skill-swap-platform-gamma.vercel.app",
+    //   category: "Full Stack",
+    //   challenges: [
+    //     "Implementing secure user authentication and authorization",
+    //     "Managing complex skill matching algorithms",
+    //     "Handling real-time request notifications",
+    //     "Optimizing image upload and storage",
+    //   ],
+    //   achievements: [
+    //     "Built end-to-end MERN stack application",
+    //     "Implemented JWT-based authentication system",
+    //     "Created admin moderation panel for quality control",
+    //     "Deployed successfully on cloud platforms",
+    //   ],
+    //   screenshots: [
+    //     "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
+    //     "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
+    //   ],
+    // },
 
     {
       title: "Artisan’s Corner",
