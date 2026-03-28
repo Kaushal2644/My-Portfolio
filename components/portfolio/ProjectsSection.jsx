@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon, ShoppingCart } from "lucide-react";
+import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon, ShoppingCart, Home } from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 
@@ -46,32 +46,54 @@ export default function ProjectsSection() {
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop",
       ],
     },
-    // {
-    //   title: "Geolocation-based Attendance Tracking",
-    //   shortDescription: "Developed an IoT and MERN stack application that tracks student attendance using smartwatch geolocation data.",
-    //   fullDescription: "Created an innovative attendance management system that leverages IoT smartwatch technology combined with geolocation services. The system automatically marks attendance when students enter designated classroom zones, eliminating manual roll calls. Features include real-time tracking, automated notifications, comprehensive admin dashboard, and detailed analytics for attendance patterns.",
-    //   technologies: ["React", "Node.js", "MongoDB", "Express", "IoT", "Geolocation API", "JWT", "Socket.io", "Material-UI"],
-    //   icon: MapPin,
-    //   gradient: "from-cyan-500 to-blue-500",
-    //   githubUrl: "https://github.com/Kaushal2644",
-    //   category: "Full Stack & IoT",
-    //   challenges: [
-    //     "Ensuring accurate geolocation within building boundaries",
-    //     "Managing real-time data sync for multiple devices",
-    //     "Battery optimization for continuous location tracking",
-    //     "Handling network connectivity issues in smartwatches"
-    //   ],
-    //   achievements: [
-    //     "Reduced attendance marking time by 95%",
-    //     "99.2% accuracy in geofence detection",
-    //     "Scaled to handle 500+ concurrent users",
-    //     "Real-time WebSocket implementation for instant updates"
-    //   ],
-    //   screenshots: [
-    //     "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=400&fit=crop",
-    //     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=400&fit=crop"
-    //   ]
-    // },
+    {
+      title: "Airbnb Clone",
+      shortDescription:
+        "Developed a full-stack Airbnb clone using Node.js, Express, MongoDB, and EJS, enabling users to create, manage, and explore property listings with authentication and review features.",
+      fullDescription:
+        "Built a production-ready full-stack web application inspired by Airbnb that allows users to browse listings, create and manage their own properties, and interact through reviews and ratings. Implemented secure user authentication and authorization to protect routes and ensure only owners can modify their content. Designed the application using MVC architecture for scalability and maintainability. Integrated Cloudinary for image uploads and Mapbox for location-based features. The project demonstrates strong understanding of RESTful APIs, CRUD operations, database relationships, and real-world full stack development practices.",
+
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "EJS",
+        "HTML",
+        "CSS",
+        "Bootstrap",
+        "JavaScript",
+        "Cloudinary",
+        "Mapbox",
+        "Passport.js",
+        "Express-Session",
+        "Git",
+        "GitHub",
+      ],
+      icon: Home,
+      gradient: "from-cyan-500 to-blue-500",
+      githubUrl: "https://github.com/Kaushal2644/delta-project.git",
+      category: "Full Stack",
+      challenges: [
+        "Implementing secure authentication and authorization for protected routes",
+        "Designing a scalable MVC architecture for better code organization",
+        "Handling image uploads and storage using Cloudinary",
+        "Managing relationships between listings, users, and reviews in MongoDB",
+        "Ensuring proper error handling for async operations and edge cases",
+      ],
+
+      achievements: [
+        "Developed a full-stack application with complete CRUD functionality",
+        "Implemented secure user authentication and role-based authorization",
+        "Integrated Cloudinary and Mapbox for enhanced user experience",
+        "Built a scalable and maintainable backend using MVC architecture",
+        "Successfully deployed the application on Render for public access",
+      ],
+      screenshots: [
+        "https://delta-project-tibz.onrender.com/listings",
+        "https://delta-project-tibz.onrender.com/listings/69c7a43913cdd32036bbfed4",
+      ],
+    },
     // {
     //   title: "Skill Swap Platform",
     //   shortDescription:
