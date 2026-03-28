@@ -36,9 +36,9 @@ export default function CertificationsSection() {
       color: "from-purple-500 to-purple-600"
     },
     {
-      title: "React.js API Integration",
-      provider: "Tops Technology",
-      category: "Frontend Development",
+      title: "Software Engineering Job Simulation",
+      provider: "JPMorgan Chase & Co.",
+      category: "Software Engineering",
       color: "from-pink-500 to-pink-600"
     }
   ];

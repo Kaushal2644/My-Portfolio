@@ -73,6 +73,7 @@ export default function ProjectsSection() {
       icon: Home,
       gradient: "from-cyan-500 to-blue-500",
       githubUrl: "https://github.com/Kaushal2644/delta-project.git",
+      liveUrl: "https://delta-project-tibz.onrender.com/listings",
       category: "Full Stack",
       challenges: [
         "Implementing secure authentication and authorization for protected routes",
@@ -90,8 +91,8 @@ export default function ProjectsSection() {
         "Successfully deployed the application on Render for public access",
       ],
       screenshots: [
-        "https://delta-project-tibz.onrender.com/listings",
-        "https://delta-project-tibz.onrender.com/listings/69c7a43913cdd32036bbfed4",
+        "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=400&fit=crop",
       ],
     },
     // {
