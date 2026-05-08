@@ -1,7 +1,20 @@
 import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Brain, MapPin, Users, X, AlertTriangle, Target, Image as ImageIcon, ShoppingCart, Home } from "lucide-react";
+import {
+  Github,
+  ExternalLink,
+  Brain,
+  MapPin,
+  Users,
+  Heart,
+  X,
+  AlertTriangle,
+  Target,
+  Image as ImageIcon,
+  ShoppingCart,
+  Home,
+} from "lucide-react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 
@@ -10,6 +23,78 @@ export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
 
   const projects = [
+    {
+      title: "ImpactHub — Smart Community Volunteer Platform",
+      shortDescription:
+        "Built an AI-powered full-stack volunteer coordination platform for NGOs using MERN Stack and Google Gemini AI, enabling smart resource allocation by matching NGOs with community needs through an intelligent scoring algorithm.",
+      fullDescription:
+        "ImpactHub is a production-ready AI-powered smart resource allocation platform built for the Google Solution Challenge — Build with AI hackathon. The platform centralizes scattered community needs collected from field reports and surveys, making it easy for NGOs to identify, prioritize, and respond to the most urgent local problems. At its core is a Smart Match Algorithm that scores NGO-to-need assignments based on efficiency (40pts), location proximity (35pts), and skill specialization (25pts) — reducing manual coordination time by 70%. Integrated Google Gemini AI (gemini-2.5-flash) for four distinct intelligent features: AI field report analyzer that auto-suggests urgency and category, AI community insights generator, AI match explainer, and a context-aware chatbot assistant. Implemented secure authentication using JWT and Google OAuth 2.0 with role-based access control. Deployed backend on Google Cloud Run and frontend on Firebase Hosting with MongoDB Atlas as the cloud database.",
+
+      technologies: [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Mongoose",
+        "Tailwind CSS",
+        "Google Gemini AI",
+        "JWT",
+        "Google OAuth 2.0",
+        "Passport.js",
+        "Google Cloud Run",
+        "Firebase Hosting",
+        "MongoDB Atlas",
+        "Chart.js",
+        "Vite",
+        "REST API",
+        "Git",
+        "GitHub",
+      ],
+      icon: Heart,
+      gradient: "from-indigo-500 to-purple-600",
+      githubUrl: "https://github.com/Kaushal2644/impacthub",
+      liveUrl: "https://impacthub-493708-8bf37.web.app",
+      category: "Full Stack + AI",
+      challenges: [
+        "Designing a Smart Match Algorithm that accurately scores NGO-to-need assignments based on multiple weighted factors",
+        "Integrating Google Gemini AI meaningfully across 4 distinct features without making it feel forced or superficial",
+        "Handling Google OAuth 2.0 callback flow correctly across local and production environments",
+        "Deploying a Node.js backend on Google Cloud Run without Docker using Buildpacks and resolving IAM permission issues",
+        "Managing CORS policies between Firebase Hosting frontend and Google Cloud Run backend in production",
+        "Ensuring real-time data consistency when field reports are converted into community needs",
+      ],
+
+      achievements: [
+        "Built and deployed a complete AI-powered MERN Stack application for Google Solution Challenge Build with AI hackathon",
+        "Integrated Google Gemini API (gemini-2.5-flash) for 4 intelligent features reducing manual NGO coordination time by 70%",
+        "Developed Smart Match Algorithm with 3-factor scoring system pairing NGOs with community needs in seconds",
+        "Implemented dual authentication system with JWT and Google OAuth 2.0 supporting Admin and Volunteer roles",
+        "Successfully deployed on Google Cloud Run and Firebase Hosting with MongoDB Atlas as cloud database",
+        "Addressed 5 UN Sustainable Development Goals through technology-driven community impact",
+      ],
+
+      screenshots: [
+        "https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=400&fit=crop",
+      ],
+
+      team: {
+        name: "Code Samuraai",
+        institution: "Shri S'ad Vidya Mandal Institute of Technology",
+        competition: "Google Solution Challenge — Build with AI",
+        members: [
+          {
+            name: "Drashti Savaliya",
+            role: "Team Leader & Full Stack Developer",
+          },
+          { name: "Shreya Lad", role: "Frontend Developer & UI/UX Designer" },
+          { name: "Kaushal Patel", role: "Backend Developer & AI Integration" },
+          { name: "Manav Surti", role: "Database Architect & API Developer" },
+        ],
+      },
+    },
     {
       title: "Employee Salary Prediction",
       shortDescription:
@@ -95,46 +180,46 @@ export default function ProjectsSection() {
         "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=400&fit=crop",
       ],
     },
-    // {
-    //   title: "Skill Swap Platform",
-    //   shortDescription:
-    //     "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
-    //   fullDescription:
-    //     "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
-    //   technologies: [
-    //     "React",
-    //     "Node.js",
-    //     "MongoDB",
-    //     "Express",
-    //     "JWT",
-    //     "Tailwind CSS",
-    //     "Multer",
-    //     "Bcrypt",
-    //     "Vercel",
-    //     "Render",
-    //   ],
-    //   icon: Users,
-    //   gradient: "from-blue-500 to-cyan-500",
-    //   githubUrl: "https://github.com/Kaushal2644/Skill-Swap-Platform.git",
-    //   liveUrl: "https://skill-swap-platform-gamma.vercel.app",
-    //   category: "Full Stack",
-    //   challenges: [
-    //     "Implementing secure user authentication and authorization",
-    //     "Managing complex skill matching algorithms",
-    //     "Handling real-time request notifications",
-    //     "Optimizing image upload and storage",
-    //   ],
-    //   achievements: [
-    //     "Built end-to-end MERN stack application",
-    //     "Implemented JWT-based authentication system",
-    //     "Created admin moderation panel for quality control",
-    //     "Deployed successfully on cloud platforms",
-    //   ],
-    //   screenshots: [
-    //     "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
-    //     "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
-    //   ],
-    // },
+    {
+      title: "Skill Swap Platform",
+      shortDescription:
+        "A MERN-based platform where users exchange skills, send requests, and manage interactive profiles.",
+      fullDescription:
+        "Developed a full-stack Skill Swap Platform using the MERN stack. Users can list skills they offer and want, browse others' profiles, send and accept swap requests, and manage their skill portfolio. The platform includes authentication using JWT, image uploads, admin moderation panel, and responsive UI built with React + Tailwind CSS. Deployed on Vercel and Render for smooth performance.",
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "JWT",
+        "Tailwind CSS",
+        "Multer",
+        "Bcrypt",
+        "Vercel",
+        "Render",
+      ],
+      icon: Users,
+      gradient: "from-blue-500 to-cyan-500",
+      githubUrl: "https://github.com/Kaushal2644/Skill-Swap.git",
+      liveUrl: "https://skill-swap-blond.vercel.app/",
+      category: "Full Stack",
+      challenges: [
+        "Implementing secure user authentication and authorization",
+        "Managing complex skill matching algorithms",
+        "Handling real-time request notifications",
+        "Optimizing image upload and storage",
+      ],
+      achievements: [
+        "Built end-to-end MERN stack application",
+        "Implemented JWT-based authentication system",
+        "Created admin moderation panel for quality control",
+        "Deployed successfully on cloud platforms",
+      ],
+      screenshots: [
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
+      ],
+    },
 
     {
       title: "Artisan’s Corner",
@@ -185,20 +270,28 @@ export default function ProjectsSection() {
 
   const categories = ["All", "Machine Learning", "Full Stack"];
 
-  const filteredProjects = activeFilter === "All" 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
+  const filteredProjects =
+    activeFilter === "All"
+      ? projects
+      : projects.filter((project) => project.category === activeFilter);
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
+    <section
+      id="projects"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Projects</span>
+            Featured{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mb-4"></div>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Innovative solutions combining cutting-edge technologies to solve real-world problems
+            Innovative solutions combining cutting-edge technologies to solve
+            real-world problems
           </p>
         </div>
 
@@ -210,9 +303,10 @@ export default function ProjectsSection() {
               onClick={() => setActiveFilter(category)}
               variant={activeFilter === category ? "default" : "outline"}
               className={`
-                ${activeFilter === category 
-                  ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600" 
-                  : "border-2 border-blue-200 dark:border-cyan-800 text-blue-600 dark:text-cyan-400 hover:bg-blue-50 dark:hover:bg-cyan-900/20"
+                ${
+                  activeFilter === category
+                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white hover:from-blue-600 hover:to-cyan-600"
+                    : "border-2 border-blue-200 dark:border-cyan-800 text-blue-600 dark:text-cyan-400 hover:bg-blue-50 dark:hover:bg-cyan-900/20"
                 }
               `}
             >
@@ -231,12 +325,16 @@ export default function ProjectsSection() {
                 onClick={() => setSelectedProject(project)}
               >
                 {/* Header with gradient */}
-                <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
-                
+                <div
+                  className={`h-2 bg-gradient-to-r ${project.gradient}`}
+                ></div>
+
                 <div className="p-8">
                   {/* Icon and Category */}
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center`}>
+                    <div
+                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+                    >
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                     <span className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-cyan-400 text-xs font-semibold">
@@ -342,7 +440,11 @@ export default function ProjectsSection() {
       </div>
 
       {/* Project Details Modal */}
-      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)} className="max-w-2xl">
+      <Dialog
+        open={!!selectedProject}
+        onOpenChange={() => setSelectedProject(null)}
+        className="max-w-2xl"
+      >
         <DialogContent>
           {selectedProject && (
             <>
@@ -364,8 +466,12 @@ export default function ProjectsSection() {
               {/* Scrollable body */}
               <div className="flex-1 min-h-0 overflow-y-auto px-5 py-4 space-y-5">
                 <div className="flex items-center gap-2">
-                  <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${selectedProject.gradient} flex items-center justify-center flex-shrink-0`}>
-                    {React.createElement(selectedProject.icon, { className: "w-5 h-5 text-white" })}
+                  <div
+                    className={`w-10 h-10 rounded-lg bg-gradient-to-br ${selectedProject.gradient} flex items-center justify-center flex-shrink-0`}
+                  >
+                    {React.createElement(selectedProject.icon, {
+                      className: "w-5 h-5 text-white",
+                    })}
                   </div>
                   <Badge className="bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-cyan-400 border-0">
                     {selectedProject.category}
@@ -380,7 +486,10 @@ export default function ProjectsSection() {
                   </h3>
                   <div className="grid grid-cols-2 gap-3">
                     {selectedProject.screenshots.map((screenshot, index) => (
-                      <div key={index} className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700">
+                      <div
+                        key={index}
+                        className="rounded-lg overflow-hidden border border-gray-200 dark:border-slate-700"
+                      >
                         <img
                           src={screenshot}
                           alt={`${selectedProject.title} screenshot ${index + 1}`}
