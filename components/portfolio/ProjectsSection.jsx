@@ -53,7 +53,7 @@ export default function ProjectsSection() {
       icon: Heart,
       gradient: "from-indigo-500 to-purple-600",
       githubUrl: "https://github.com/Kaushal2644/impacthub",
-      liveUrl: "https://impacthub-493708-8bf37.web.app",
+      liveUrl: "https://impact-hub-fresh.vercel.app/login",
       category: "Full Stack + AI",
       challenges: [
         "Designing a Smart Match Algorithm that accurately scores NGO-to-need assignments based on multiple weighted factors",
