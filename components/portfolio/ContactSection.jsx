@@ -1,167 +1,87 @@
 "use client";
 
-import React, { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send, Loader2, CheckCircle } from "lucide-react";
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import emailjs from "emailjs-com";
+import { profile, emailConfig } from "@/data/portfolio";
+import { Section } from "./ui";
+
+const empty = { name: "", email: "", subject: "", message: "" };
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
-  });
+  const [form, setForm] = useState(empty);
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
 
-  const [status, setStatus] = useState("idle");
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    if (status !== "loading" && status !== "idle") setStatus("idle");
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     setStatus("loading");
-
     emailjs
-      .send(
-        "service_hojohiv",
-        "template_xbb73qc",
-        {
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        "gMlslhFpAQodTntib"
-      )
-      .then(() => {
-        setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      })
-      .catch(() => {
-        setStatus("error");
-      });
+      .send(emailConfig.serviceId, emailConfig.templateId, { ...form }, emailConfig.publicKey)
+      .then(() => { setStatus("success"); setForm(empty); })
+      .catch(() => setStatus("error"));
   };
 
+  const info = [
+    { icon: Mail, label: "Email", value: profile.email, href: `mailto:${profile.email}` },
+    { icon: Phone, label: "Phone", value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, "")}` },
+    { icon: MapPin, label: "Location", value: profile.location },
+  ];
+
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-950">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Contact <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Me</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full"></div>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <Card className="p-6 bg-white dark:bg-slate-900 shadow-lg border dark:border-slate-700">
-              <div className="flex items-start space-x-4">
-                <Mail className="w-10 h-10 text-blue-600 dark:text-cyan-400" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Email</h3>
-                  <p className="text-gray-600 dark:text-gray-400">kaushalpatel2506@gmail.com</p>
-                </div>
+    <Section id="contact" subtle title="Contact Me" description="Have a question or a project in mind? Send a message and I’ll get back to you.">
+      <div className="grid gap-10 xl:grid-cols-[1fr_1.4fr]">
+        <ul className="space-y-6">
+          {info.map(({ icon: Ico, label, value, href }) => (
+            <li key={label} className="flex items-start gap-4">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-line bg-surface text-accent"><Ico className="h-5 w-5" aria-hidden="true" /></span>
+              <div className="min-w-0">
+                <p className="text-sm text-muted">{label}</p>
+                {href ? <a href={href} className="break-all font-medium hover:text-accent">{value}</a> : <p className="font-medium">{value}</p>}
               </div>
-            </Card>
+            </li>
+          ))}
+        </ul>
 
-            <Card className="p-6 bg-white dark:bg-slate-900 shadow-lg border dark:border-slate-700">
-              <div className="flex items-start space-x-4">
-                <Phone className="w-10 h-10 text-blue-600 dark:text-cyan-400" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Phone</h3>
-                  <p className="text-gray-600 dark:text-gray-400">+91 75748 45894</p>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-6 bg-white dark:bg-slate-900 shadow-lg border dark:border-slate-700">
-              <div className="flex items-start space-x-4">
-                <MapPin className="w-10 h-10 text-blue-600 dark:text-cyan-400" />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Location</h3>
-                  <p className="text-gray-600 dark:text-gray-400">Bharuch, Gujarat</p>
-                </div>
-              </div>
-            </Card>
+        <form onSubmit={onSubmit} className="space-y-5 rounded-xl border border-line bg-surface p-6 sm:p-8">
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label htmlFor="name" className="mb-1.5 block text-sm font-medium">Name</label>
+              <input id="name" name="name" value={form.name} onChange={onChange} required autoComplete="name" placeholder="John Doe" className="field" />
+            </div>
+            <div>
+              <label htmlFor="email" className="mb-1.5 block text-sm font-medium">Email</label>
+              <input id="email" name="email" type="email" value={form.email} onChange={onChange} required autoComplete="email" placeholder="john@example.com" className="field" />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="subject" className="mb-1.5 block text-sm font-medium">Subject</label>
+            <input id="subject" name="subject" value={form.subject} onChange={onChange} required placeholder="Project Collaboration" className="field" />
+          </div>
+          <div>
+            <label htmlFor="message" className="mb-1.5 block text-sm font-medium">Message</label>
+            <textarea id="message" name="message" rows={5} value={form.message} onChange={onChange} required placeholder="Your message here..." className="field resize-y" />
           </div>
 
-          {/* Contact Form */}
-          <Card className="p-8 shadow-xl bg-white dark:bg-slate-900 border dark:border-slate-700">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Name</label>
-                  <Input
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
-                  <Input
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
+          <button type="submit" disabled={status === "loading"} className="btn btn-primary w-full py-3.5 disabled:opacity-60">
+            {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : status === "success" ? <CheckCircle className="h-4 w-4" /> : <Send className="h-4 w-4" />}
+            {status === "loading" ? "Sending..." : status === "success" ? "Message Sent!" : "Send Message"}
+          </button>
 
-              <div>
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Subject</label>
-                <Input
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  placeholder="Project Collaboration"
-                />
-              </div>
-
-              <div>
-                <label className="text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                <Textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  placeholder="Your message here..."
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-6 font-semibold hover:opacity-90"
-              >
-                {status === "loading" ? (
-                  <Loader2 className="animate-spin w-5 h-5 mr-2" />
-                ) : status === "success" ? (
-                  <CheckCircle className="w-5 h-5 mr-2" />
-                ) : (
-                  <Send className="w-5 h-5 mr-2" />
-                )}
-                {status === "loading"
-                  ? "Sending..."
-                  : status === "success"
-                  ? "Message Sent!"
-                  : "Send Message"}
-              </Button>
-            </form>
-          </Card>
-        </div>
+          <div aria-live="polite" className="min-h-5 text-sm">
+            {status === "success" && <p className="flex items-center gap-2 text-green-600 dark:text-green-400"><CheckCircle className="h-4 w-4" />Thanks. I’ll reply to your email soon.</p>}
+            {status === "error" && (
+              <p className="flex items-center gap-2 text-red-600 dark:text-red-400">
+                <AlertCircle className="h-4 w-4 shrink-0" />The message didn’t send. Check your connection and try again, or email {profile.email}.
+              </p>
+            )}
+          </div>
+        </form>
       </div>
-    </section>
+    </Section>
   );
 }

@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
+/* Tailwind v4: makes `dark:` follow the .dark class that the theme toggle sets.
+   (Without this line the toggle in the old version did nothing.) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Design tokens: change a colour here and the whole site updates ── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --page: #ffffff;
+  --subtle: #f4f6fa;
+  --surface: #ffffff;
+  --line: #e3e7ee;
+  --fg: #0e1420;
+  --muted: #4b5565;
+  --accent: #1f4fd8;
+  --accent-fg: #ffffff;
+  color-scheme: light;
+}
+.dark {
+  --page: #0b0e14;
+  --subtle: #0f141d;
+  --surface: #131a26;
+  --line: #222b3a;
+  --fg: #eef1f6;
+  --muted: #9aa5b8;
+  --accent: #7da2ff;
+  --accent-fg: #0b0e14;
+  color-scheme: dark;
 }
 
-/* @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-} */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme inline {
+  --color-page: var(--page);
+  --color-subtle: var(--subtle);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --font-sans: var(--font-hanken), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-page text-fg font-sans antialiased; }
+  section[id] { scroll-margin-top: 4rem; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 }
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-colors; }
+  .btn-primary { @apply bg-accent text-accent-fg hover:opacity-90; }
+  .btn-ghost { @apply border border-line text-fg hover:bg-subtle; }
+  .chip { @apply inline-flex items-center rounded-full border border-line px-3 py-1 text-xs font-medium text-muted; }
+  .icon-link { @apply grid h-10 w-10 place-items-center rounded-lg border border-line text-muted transition-colors hover:border-accent hover:text-accent; }
+  .field { @apply w-full rounded-lg border border-line bg-surface px-3.5 py-2.5 text-sm text-fg placeholder:text-muted/70 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30; }
+}
+
+/* The one deliberate motion on the site: a staggered entrance in the hero. */
+.rise { opacity: 0; animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; animation-delay: var(--d, 0ms); }
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .rise { opacity: 1; animation: none; } }

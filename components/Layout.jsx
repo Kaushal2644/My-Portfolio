@@ -1,121 +1,148 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Moon, Sun, Menu, X, Github, Linkedin, Mail } from "lucide-react";
+import { profile } from "@/data/portfolio";
 
-// 🔥 Load dark mode BEFORE React hydration
-if (typeof window !== "undefined") {
-  const savedTheme = localStorage.getItem("theme") || "dark";
-  document.documentElement.classList.toggle("dark", savedTheme === "dark");
+const navItems = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "skills", label: "Skills" },
+  { id: "projects", label: "Projects" },
+  { id: "internships", label: "Internships" },
+  { id: "certifications", label: "Certifications" },
+  { id: "contact", label: "Contact" },
+];
+
+// Highlights the nav link of the section currently in view (home page only).
+function useActiveSection(enabled) {
+  const [active, setActive] = useState("home");
+  useEffect(() => {
+    if (!enabled) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && setActive(e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    navItems.forEach((i) => {
+      const el = document.getElementById(i.id);
+      if (el) io.observe(el);
+    });
+    return () => io.disconnect();
+  }, [enabled]);
+  return active;
 }
 
 export default function Layout({ children }) {
-  const [theme, setTheme] = useState("dark");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const onHome = pathname === "/";
+  const sectionInView = useActiveSection(onHome);
+  const active = onHome ? sectionInView : pathname.startsWith("/projects") ? "projects" : "";
+
+  const [dark, setDark] = useState(true);
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Load theme on mount
+  useEffect(() => setDark(document.documentElement.classList.contains("dark")), []);
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => setOpen(false), [pathname]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try { localStorage.setItem("theme", next ? "dark" : "light"); } catch (e) {}
   };
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setMobileMenuOpen(false);
-    }
-  };
-
-  const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "projects", label: "Projects" },
-    { id: "internships", label: "Internships" },
-    { id: "certifications", label: "Certifications" },
-    { id: "contact", label: "Contact" }
-  ];
+  const ThemeButton = (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className="icon-link"
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+    >
+      {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </button>
+  );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300">
-      {/* NAVBAR */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg shadow-lg"
-            : "bg-transparent"
+    <div className="min-h-screen">
+      <a href="#main" className="sr-only rounded-lg bg-accent px-4 py-2 text-accent-fg focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60]">
+        Skip to content
+      </a>
+
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-colors ${
+          scrolled || open ? "border-line bg-page/85 backdrop-blur-xl" : "border-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+        <div className="wrap flex h-16 items-center justify-between">
+          <Link href="/#home" className="font-display text-lg font-semibold tracking-tight" aria-label={`${profile.name} — home`}>
+            {profile.initials}
+          </Link>
+
+          <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                href={`/#${item.id}`}
+                aria-current={active === item.id ? "true" : undefined}
+                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors hover:text-fg ${
+                  active === item.id ? "text-fg underline decoration-accent decoration-2 underline-offset-8" : "text-muted"
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <span className="ml-3">{ThemeButton}</span>
+          </nav>
+
+          <div className="flex items-center gap-2 md:hidden">
+            {ThemeButton}
             <button
-              onClick={() => scrollToSection("home")}
-              className="text-xl font-bold bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent"
+              type="button"
+              className="icon-link"
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+              aria-label={open ? "Close menu" : "Open menu"}
             >
-              KP
+              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
-
-            {/* Desktop menu */}
-            <div className="hidden md:flex items-center space-x-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-cyan-400 transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-
-              {/* Theme button */}
-            </div>
-
-            {/* Mobile menu */}
-            <div className="flex md:hidden items-center space-x-2">
-              <Button variant="ghost" size="icon" onClick={toggleTheme}>
-                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </Button>
-
-              <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-                {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
-            </div>
           </div>
-
-          {mobileMenuOpen && (
-            <div className="md:hidden pb-4 bg-white dark:bg-slate-900 rounded-b-lg shadow-lg space-y-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="block w-full text-left px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          )}
         </div>
-      </nav>
 
-      <main>{children}</main>
+        {open && (
+          <nav className="wrap grid gap-1 pb-4 md:hidden" aria-label="Mobile">
+            {navItems.map((item) => (
+              <Link key={item.id} href={`/#${item.id}`} className={`rounded-lg px-3 py-2.5 text-sm font-medium hover:bg-subtle ${active === item.id ? "text-accent" : "text-muted"}`}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        )}
+      </header>
+
+      <main id="main">{children}</main>
+
+      <footer className="border-t border-line py-10">
+        <div className="wrap flex flex-col items-center justify-between gap-6 sm:flex-row">
+          <div className="text-center sm:text-left">
+            <p className="text-sm text-muted">© {new Date().getFullYear()} {profile.name}. Built with passion using React</p>
+            <p className="mt-1 text-xs text-muted/80">Designed &amp; Developed by {profile.name}</p>
+          </div>
+          <div className="flex gap-2">
+            <a className="icon-link" href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><Github className="h-4 w-4" /></a>
+            <a className="icon-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
+            <a className="icon-link" href={`mailto:${profile.email}`} aria-label="Email"><Mail className="h-4 w-4" /></a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
